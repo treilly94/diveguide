@@ -1,9 +1,9 @@
 # Check the production settings
 .PHONY: check
 check:
-	python manage.py check --deploy
+	python manage.py check --deploy --settings=diveguide.settings.prod
 
 # Start a local development server
-.PHONY: devserver
-devserver:
-	python manage.py runserver
+.PHONY: rundev
+rundev:
+	python manage.py runserver --settings=diveguide.settings.dev
