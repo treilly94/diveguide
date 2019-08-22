@@ -14,3 +14,8 @@ server:
 .PHONY: migrate
 migrate:
 	python manage.py migrate --settings=diveguide.settings.$(ENV)
+
+# Run the unit tests
+.PHONY: test
+test:
+	python manage.py test --settings=diveguide.settings.$(ENV)
