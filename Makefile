@@ -20,6 +20,11 @@ migrate:
 test:
 	python manage.py test --settings=diveguide.settings.$(ENV)
 
+# Generate the static files
+.PHONY: collectstatic
+collectstatic:
+	python manage.py collectstatic --noinput --settings=diveguide.settings.$(ENV)
+
 # Lint
 .PHONY: lint
 lint: lint_diveguide lint_divesites
