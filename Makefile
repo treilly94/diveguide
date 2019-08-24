@@ -19,3 +19,15 @@ migrate:
 .PHONY: test
 test:
 	python manage.py test --settings=diveguide.settings.$(ENV)
+
+# Lint
+.PHONY: lint
+lint: lint_diveguide lint_divesites
+
+.PHONY: lint_diveguide
+lint_diveguide:
+	pylint --load-plugins pylint_django diveguide
+
+.PHONY: lint_divesites
+lint_divesites:
+	pylint --load-plugins pylint_django divesites
