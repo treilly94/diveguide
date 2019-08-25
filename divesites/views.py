@@ -1,6 +1,7 @@
 """
 The views for the dive site app
 """
+import os
 
 from django.views import generic
 
@@ -33,3 +34,9 @@ class DetailView(generic.DetailView):  # pylint: disable=R0901
 
     model = Location
     template_name = 'divesites/detail.html'
+
+    def get_context_data(self, **kwargs):
+        """Adds additional context to the template"""
+        context = super(DetailView, self).get_context_data(**kwargs)
+        context['api_key'] = os.getenv("GOOGLE_MAPS_API")
+        return context
