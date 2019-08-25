@@ -1,9 +1,14 @@
+"""
+The admin page details for the divesites app
+"""
+
 from django.contrib import admin
 
 from .models import Location
 
 
 class LocationAdmin(admin.ModelAdmin):
+    """The admin form for the location information"""
     fieldsets = [
         (
             None, {

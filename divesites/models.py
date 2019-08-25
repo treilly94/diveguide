@@ -1,3 +1,7 @@
+"""
+The models for the divesite app
+"""
+
 import datetime
 
 from django.db import models
@@ -5,6 +9,8 @@ from django.utils import timezone
 
 
 class Location(models.Model):
+    """The location information table"""
+
     # Basics
     location_name = models.CharField(max_length=200)
     description = models.TextField(max_length=500, default='', blank=True)
@@ -31,9 +37,11 @@ class Location(models.Model):
     last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
+        """Returns the location name"""
         return self.location_name
 
     def was_updated_recently(self):
+        """Returns true if record has been updated in the last 7 days"""
         now = timezone.now()
         return now - datetime.timedelta(days=7) <= self.last_updated <= now
 
@@ -41,19 +49,17 @@ class Location(models.Model):
     was_updated_recently.short_description = 'Updated recently?'
 
     def free_parking(self):
-        if self.parking_cost == 'Free':
-            return True
-        else:
-            return False
+        """Returns true if the parking is free"""
+
+        return self.parking_cost == 'Free'
 
     free_parking.boolean = True
     free_parking.short_description = 'Free parking'
 
     def free_dive(self):
-        if self.dive_cost == 'Free':
-            return True
-        else:
-            return False
+        """Returns true if the dive is free"""
+
+        return self.dive_cost == 'Free'
 
     free_dive.boolean = True
     free_dive.short_description = 'Free diving'

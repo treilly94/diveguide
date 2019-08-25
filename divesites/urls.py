@@ -1,3 +1,7 @@
+"""
+The urls for the divesite app
+"""
+
 from django.conf.urls import url
 
 from . import views
