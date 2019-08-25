@@ -27,10 +27,8 @@ class IndexViewTests(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'divesites/index.html')
-        self.assertContains(response, 'Fresh water sites')
-        self.assertContains(response, 'Salt water sites')
 
-    def test_index_page_sw(self):
+    def test_index_page_with_sw_site(self):
         """A test with a entry for a salt water site"""
         kwargs = {"location_name": "Trefor Pier",
                   "water_type": "SW"}
