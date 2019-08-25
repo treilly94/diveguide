@@ -1,3 +1,11 @@
+"""
+Django settings for a development server on heroku.
+
+Extends base.py
+"""
+
+# pylint: disable=W0401,W0614
+
 from .base import *
 
 # SECURITY WARNING: keep the secret key used in production secret!
