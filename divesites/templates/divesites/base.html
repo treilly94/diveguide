@@ -12,22 +12,13 @@
 </head>
 
 <body>
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="{% url 'divesites:index' %}">Divesites</a></li>
-            </ul>
-        </div>
-    </div>
+<nav class="w3-bar w3-black">
+    <a href="{% url 'divesites:index' %}" class="w3-bar-item w3-button">Divesites</a>
 </nav>
 
 {% block content %}
 
 {% endblock content %}
-
-<footer class="container-fluid text-center">
-</footer>
 
 </body>
 </html>
