@@ -1,0 +1,33 @@
+{% extends 'divesites/base.html' %}
+
+{% block title %}Dive sites{% endblock title %}
+
+{% block content %}
+
+<div class="w3-container">
+    <div class="w3-container">
+        <h2>Dive sites</h2>
+    </div>
+    <form class="w3-container">
+        <input type="text" name="search" placeholder="Search..">
+
+    </form>
+    {% if locations %}
+    <ul class="w3-ul w3-hoverable">
+        {% for location in locations %}
+        <li class="w3-panel w3-card w3-round">
+            <a href="{% url 'divesites:detail' location.id %}">
+                {{ location.location_name }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <div class="w3-panel w3-center w3-pale-red w3-round w3-border">
+        <h3>No dive sites found</h3>
+        <p>You may need to remove some filters</p>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock content %}
