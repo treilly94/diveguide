@@ -14,7 +14,16 @@ class IndexView(generic.ListView):  # pylint: disable=R0901
     context_object_name = 'locations'
 
     def get_queryset(self):
-        """Return the all locations alphabetically"""
+        """
+        Applies filters and returns location objects
+
+        :return:
+        """
+
+        search_query = self.request.GET.get('search')
+
+        if search_query:
+            return Location.objects.filter(location_name__icontains=search_query)
 
         return Location.objects.all()
 

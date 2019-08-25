@@ -8,10 +8,10 @@
     <div class="w3-container">
         <h2>Dive sites</h2>
     </div>
-    <div class="w3-container">
-        <input type="text" placeholder="Search..">
+    <form class="w3-container">
+        <input type="text" name="search" placeholder="Search..">
 
-    </div>
+    </form>
     {% if locations %}
     <ul class="w3-ul w3-hoverable">
         {% for location in locations %}
