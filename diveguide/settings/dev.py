@@ -28,3 +28,12 @@ DATABASES = {
 }
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Simplified static file serving used with heroku.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Simplified static file serving Used with heroku.
+# https://warehouse.python.org/project/whitenoise/
+MIDDLEWARE.append('whitenoise.middleware.WhiteNoiseMiddleware')
