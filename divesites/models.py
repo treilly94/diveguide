@@ -2,10 +2,7 @@
 The models for the divesite app
 """
 
-import datetime
-
 from django.db import models
-from django.utils import timezone
 
 
 class Location(models.Model):
@@ -39,27 +36,3 @@ class Location(models.Model):
     def __str__(self):
         """Returns the location name"""
         return self.location_name
-
-    def was_updated_recently(self):
-        """Returns true if record has been updated in the last 7 days"""
-        now = timezone.now()
-        return now - datetime.timedelta(days=7) <= self.last_updated <= now
-
-    was_updated_recently.boolean = True
-    was_updated_recently.short_description = 'Updated recently?'
-
-    def free_parking(self):
-        """Returns true if the parking is free"""
-
-        return self.parking_cost == 'Free'
-
-    free_parking.boolean = True
-    free_parking.short_description = 'Free parking'
-
-    def free_dive(self):
-        """Returns true if the dive is free"""
-
-        return self.dive_cost == 'Free'
-
-    free_dive.boolean = True
-    free_dive.short_description = 'Free diving'
