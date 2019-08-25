@@ -12,9 +12,9 @@
         <input type="text" placeholder="Search..">
 
     </div>
-    {% if latest_location_list %}
+    {% if locations %}
     <ul class="w3-ul w3-hoverable">
-        {% for location in latest_location_list %}
+        {% for location in locations %}
         <li class="w3-panel w3-card w3-round">
             <a href="{% url 'divesites:detail' location.id %}">
                 {{ location.location_name }}

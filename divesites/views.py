@@ -11,12 +11,12 @@ class IndexView(generic.ListView):  # pylint: disable=R0901
     """The view for the apps Index page"""
 
     template_name = 'divesites/index.html'
-    context_object_name = 'latest_location_list'
+    context_object_name = 'locations'
 
     def get_queryset(self):
         """Return the all locations alphabetically"""
 
-        return Location.objects.order_by('location_name')
+        return Location.objects.all()
 
 
 class DetailView(generic.DetailView):  # pylint: disable=R0901
@@ -24,8 +24,3 @@ class DetailView(generic.DetailView):  # pylint: disable=R0901
 
     model = Location
     template_name = 'divesites/detail.html'
-
-    def get_queryset(self):
-        """Returns the location objects"""
-
-        return Location.objects
